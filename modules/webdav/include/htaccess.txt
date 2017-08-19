@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^%base%/([0-9]+)/([0-9]+)/index%html%		./modules/languages/index.php?start=$1&limit=$2
+RewriteRule ^%base%/requests%html%                  	./modules/languages/requests.php                          					[L,NC,QSA]

@@ -1,0 +1,34 @@
+<h1><{$smarty.const.LANGS_MN_INDEX_H1}></h1>
+<p><{$smarty.const.LANGS_MN_INDEX_P1}></p>
+<div>
+	<div style="float: right; width: auto; margin-right: 15px;">
+		<{$pagenav}>
+	</div>
+</div>
+<table style="font-size: 145% !important;">
+	<thead>
+		<tr class="head" align="center" style="font-weight: bold;">
+			<td style="padding: 4px;"><{$smarty.const.LANGS_MN_TD_NAME}></td>
+			<td style="padding: 4px;"><{$smarty.const.LANGS_MN_TD_FOLDER}></td>
+			<td style="padding: 4px;"><{$smarty.const.LANGS_MN_TD_CODE}></td>
+			<td style="padding: 4px;"><{$smarty.const.LANGS_MN_TD_SPOKEN}></td>
+			<td style="padding: 4px;"><{$smarty.const.LANGS_MN_TD_WRITTEN}></td>
+		</tr>
+	</thead>
+	<tbody>
+		<{foreach item=language from=$languages}>
+		<tr class="<{cycle values='even,odd'}>" align="center">
+			<td style="padding: 4px;"><{$language.name}></td>
+			<td style="padding: 4px;"><{foreach from =$language.folder item=path}><{$smarty.const.DIRECTORY_SEPARATOR}><em><{$path}></em><br /><{/foreach}></td>
+			<td style="padding: 4px;"><strong><{$language.code}></strong></td>
+			<td style="padding: 4px;"><{if $language.spoken}><{foreach item=user from=$language.spoken key=uid}>&nbsp;-&nbsp;<a href="<{$xoops_url}>/userinfo.php?uid=<{$uid}>"><{$user.uname}></a><{/foreach}>&nbsp;-&nbsp;<{else}>&nbsp;-&nbsp;<{/if}></td>
+			<td style="padding: 4px;"><{if $language.written}><{foreach item=user from=$language.written key=uid}>&nbsp;-&nbsp;<a href="<{$xoops_url}>/userinfo.php?uid=<{$uid}>"><{$user.uname}></a><{/foreach}>&nbsp;-&nbsp;<{else}>&nbsp;-&nbsp;<{/if}></td>
+		</tr>
+		<{/foreach}>
+	</tbody>
+</table>
+<div>
+	<div style="float: left; width: auto; margin-left: 15px;">
+		<{$pagenav}>
+	</div>
+</div>
